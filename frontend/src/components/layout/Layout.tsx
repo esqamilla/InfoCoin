@@ -17,10 +17,10 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   }, [token]);
 
   return (
-	<div>
-		Layout
-		{children}
-	</div>
+    <div>
+      Layout
+      {children}
+    </div>
   )
 }
 
