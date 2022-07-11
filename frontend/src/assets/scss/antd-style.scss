@@ -1,0 +1,120 @@
+@import '../../assets/scss/var.scss';
+
+// Menu
+.ant-menu-horizontal>.ant-menu-item::after,
+.ant-menu-horizontal>.ant-menu-submenu::after {
+	bottom: 27px !important;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected::after {
+	border-color: $black;
+}
+
+.ant-menu-title-content {
+	font-weight: 500;
+	font-size: 20px;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu {
+	display: flex;
+	align-items: center;
+}
+
+.ant-menu-horizontal {
+	border: none;
+}
+
+.ant-menu-horizontal>.ant-menu-submenu>.ant-menu-submenu-title {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.ant-menu-submenu:hover {
+	&::after {
+		border-color: $primary  !important;
+	}
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu:hover,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-active,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-active,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-open,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-open,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-selected,
+.ant-menu-light .ant-menu-item:hover,
+.ant-menu-light .ant-menu-item-active,
+.ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open,
+.ant-menu-light .ant-menu-submenu-active,
+.ant-menu-light .ant-menu-submenu-title:hover {
+	color: $primary  !important;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-active::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-open::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu-selected::after {
+	border-color: $primary  !important;
+}
+
+.antd__popup {
+	width: 150px !important;
+
+	ul {
+		margin-top: -50px;
+		padding-bottom: 10px !important;
+		padding-top: 50px !important;
+		border-radius: 10px !important;
+		overflow: hidden;
+	}
+
+	.ant-menu-item {
+		text-align: center;
+	}
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-submenu {
+	z-index: 1051;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+	background-color: $grey;
+}
+
+.ant-menu-item-selected {
+	color: $primary;
+}
+
+.ant-menu-horizontal>.ant-menu-item a:hover {
+	color: inherit !important;
+}
+
+.ant-menu-item-selected a,
+.ant-menu-item-selected a:hover {
+	color: inherit !important;
+}
+
+.ant-menu-item a:hover {
+	color: inherit !important;
+}
+
+
+
+// Popover
+.ant-popover-inner {
+	border-radius: 10px;
+	overflow: hidden;
+
+	&-content {
+		width: 290px;
+		padding: 15px;
+	}
+}

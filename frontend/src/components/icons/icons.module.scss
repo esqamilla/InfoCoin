@@ -1,0 +1,9 @@
+@import '../../assets/scss/var.scss';
+
+.profile {
+	path {
+		fill: $primary;
+
+		transition: fill 0.38s ease-in-out;
+	}
+}
