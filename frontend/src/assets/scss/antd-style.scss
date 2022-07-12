@@ -118,3 +118,38 @@
 		padding: 15px;
 	}
 }
+
+
+
+// Layout
+.ant-layout {
+	background: transparent;
+}
+
+
+
+// Button
+.btn {
+	&.ant-btn-primary {
+		min-width: 250px;
+		height: 80px;
+		color: #fff;
+		border: 2px solid $primary;
+		background-color: $primary;
+		text-shadow: none;
+		box-shadow: none;
+		border-radius: 10px;
+		font-size: 24px;
+		font-weight: 600;
+
+		transition: background-color 0.38s ease-in-out,
+			color 0.38s ease-in-out,
+			border-color 0.38s ease-in-out;
+
+		&:hover {
+			color: $primary;
+			background-color: transparent;
+			border-color: $primary;
+		}
+	}
+}

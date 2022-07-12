@@ -1,8 +1,9 @@
 import React, {FC, ReactElement, useEffect} from 'react'
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Layout as MainLayout } from 'antd';
 import style from "./layout.module.scss";
 import Header from '../header/Header';
+import Contanier from '../container/Contanier';
 
 const { Content } = MainLayout;
 
@@ -26,7 +27,11 @@ const Layout: FC<LayoutProps> = ({ children }) => {
     <MainLayout>
       <Header />
       <MainLayout className={style.mainLayout}>
-        <Content>{children}</Content>
+        <Content>
+          <Contanier>
+            {children}
+          </Contanier>
+        </Content>
       </MainLayout>
     </MainLayout>
   )

@@ -1,0 +1,90 @@
+@import '../../assets/scss/var.scss';
+
+.roundBtn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	padding: 0;
+	background-color: $white;
+	border: 2px solid $white;
+	box-shadow: none;
+	color: $primary;
+
+	transition: background-color 0.38s ease-in-out,
+		border-color 0.38s ease-in-out,
+		color 0.38s ease-in-out;
+
+	svg {
+		width: 50px;
+		height: 50px;
+		transition: transform 0.38s ease-in-out;
+	}
+
+	&:focus {
+		background-color: $white;
+		border: 2px solid $white;
+		color: $primary;
+	}
+
+	&:hover {
+		background-color: $primary;
+		border-color: $primary;
+		color: $white;
+
+		svg {
+			transform: scale(0.5);
+		}
+	}
+
+	&.roundBtnOpen {
+		background-color: $white;
+		border-color: $primary;
+		color: $primary;
+
+		svg {
+			transform: scale(0.5);
+		}
+	}
+}
+
+.popoverTitle {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.popoverIcon {
+	margin-right: 20px;
+	color: $primary;
+
+	svg {
+		width: 50px;
+		height: 50px;
+	}
+}
+
+.title {
+	margin-bottom: 5px;
+	font-size: 18px;
+	font-weight: 400;
+	color: #999999;
+}
+
+.name {
+	color: $primary;
+	font-size: 20px;
+}
+
+.popoverLink {
+	font-size: 20px;
+	color: $primary;
+	padding-left: 0;
+
+	&:hover,
+	&:focus {
+		color: $black;
+	}
+}

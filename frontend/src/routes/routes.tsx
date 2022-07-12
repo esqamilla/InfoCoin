@@ -16,6 +16,7 @@ type Routes = {
 const RouteComponents: TRouteComponents = {
   Index: loadable(() => import("../pages/home/Home")),
   Auth: loadable(() => import("../pages/authorization/Authorization")),
+  // Reg: loadable(() => import("../pages/registration/Registration")),
 };
 
 export const routes: Routes = {
