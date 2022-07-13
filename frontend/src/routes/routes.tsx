@@ -16,7 +16,10 @@ type Routes = {
 const RouteComponents: TRouteComponents = {
   Index: loadable(() => import("../pages/home/Home")),
   Auth: loadable(() => import("../pages/authorization/Authorization")),
-  // Reg: loadable(() => import("../pages/registration/Registration")),
+  Reg: loadable(() => import("../pages/registration/Registration")),
+  PasswordRecovery: loadable(() => import("../pages/passwordRecovery/PasswordRecovery")),
+  PasswordRecoveryCode: loadable(() => import("../pages/passwordRecoveryCode/PasswordRecoveryCode")),
+  PasswordRecoveryChanging: loadable(() => import("../pages/passwordRecoveryChanging/PasswordRecoveryChanging")),
 };
 
 export const routes: Routes = {
@@ -27,5 +30,21 @@ export const routes: Routes = {
   Auth: {
     path: Path.Auth,
     element: <RouteComponents.Auth />,
+  },
+  Reg: {
+    path: Path.Reg,
+    element: <RouteComponents.Reg />,
+  },
+  PasswordRecovery: {
+    path: Path.PasswordRecovery,
+    element: <RouteComponents.PasswordRecovery />,
+  },
+  PasswordRecoveryCode: {
+    path: Path.PasswordRecoveryCode,
+    element: <RouteComponents.PasswordRecoveryCode />,
+  },
+  PasswordRecoveryChanging: {
+    path: Path.PasswordRecoveryChanging,
+    element: <RouteComponents.PasswordRecoveryChanging />,
   },
 };

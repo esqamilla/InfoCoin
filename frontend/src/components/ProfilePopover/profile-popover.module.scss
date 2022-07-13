@@ -6,12 +6,12 @@
 	justify-content: center;
 	width: 50px;
 	height: 50px;
-	border-radius: 50%;
+	border-radius: 50% !important;
 	padding: 0;
-	background-color: $white;
-	border: 2px solid $white;
+	background-color: $white  !important;
+	border: 2px solid $white  !important;
 	box-shadow: none;
-	color: $primary;
+	color: $primary  !important;
 
 	transition: background-color 0.38s ease-in-out,
 		border-color 0.38s ease-in-out,
@@ -24,28 +24,28 @@
 	}
 
 	&:focus {
-		background-color: $white;
-		border: 2px solid $white;
-		color: $primary;
+		background-color: $white  !important;
+		border: 2px solid $white  !important;
+		color: $primary  !important;
 	}
 
 	&:hover {
-		background-color: $primary;
-		border-color: $primary;
-		color: $white;
+		background-color: $primary  !important;
+		border-color: $primary  !important;
+		color: $white  !important;
 
 		svg {
-			transform: scale(0.5);
+			transform: scale(0.5) !important;
 		}
 	}
 
 	&.roundBtnOpen {
-		background-color: $white;
-		border-color: $primary;
-		color: $primary;
+		background-color: $white  !important;
+		border-color: $primary  !important;
+		color: $primary  !important;
 
 		svg {
-			transform: scale(0.5);
+			transform: scale(0.5) !important;
 		}
 	}
 }

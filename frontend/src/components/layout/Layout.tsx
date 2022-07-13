@@ -24,7 +24,7 @@ const Layout: FC<LayoutProps> = ({ children }) => {
   }, [token]);
 
   return (
-    <MainLayout>
+    <MainLayout className={style.layout}>
       <Header />
       <MainLayout className={style.mainLayout}>
         <Content>

@@ -1,0 +1,34 @@
+@import "../../assets/scss/var.scss";
+
+.form {
+	max-width: 450px;
+	margin: 80px auto 0;
+}
+
+.btn {
+	margin-bottom: 35px;
+}
+
+.subInfo {
+	text-align: center;
+	font-size: 23px;
+	font-weight: 400;
+	color: #736868;
+	margin-bottom: 50px;
+
+	a {
+		font-weight: 600;
+		color: $primary;
+		text-decoration: underline;
+	}
+}
+
+.forgotPassword {
+	margin-top: 95px;
+	margin-bottom: 5px;
+	text-align: right;
+	display: block;
+	font-size: 18px;
+	font-weight: 500;
+	color: $primary;
+}

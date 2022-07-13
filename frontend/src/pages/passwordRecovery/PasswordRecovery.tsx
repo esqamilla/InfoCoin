@@ -1,26 +1,28 @@
 import {Button, Form, Input, message} from 'antd'
 import React, {FC} from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useLocation, useNavigate} from 'react-router-dom'
 import FormWrapper from '../../components/formWrapper/FormWrapper'
-import {Path} from '../../routes/path'
-import {AuthorizationData} from '../../types/types'
-import style from "./authorization.module.scss"
+import {RecoveryData} from '../../types/types'
+import style from "./password-recovery.module.scss"
 
-const Authorization: FC = () => {
+const PasswordRecovery: FC = () => {
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
-  const onFinish = (values: AuthorizationData) => {
-    message.success('Авторизация прошла успешно!');
+  const onFinish = (values: RecoveryData) => {
+    message.success('Код отправлен на указанный эл. адрес!');
 
     console.log("values", values);
+
+    navigate("/passwordRecoveryCode", { replace: true });
   };
 
   const onFinishFailed = () => {
-    message.error('Пожалуйста, заполните все поля!');
+    message.error('Пожалуйста, заполните Email!');
   };
 
   return (
-	  <FormWrapper title="Вход">
+	  <FormWrapper title="Восстановление пароля">
       <Form
         form={form}
         onFinish={onFinish}
@@ -44,18 +46,6 @@ const Authorization: FC = () => {
           <Input placeholder="Email" />
         </Form.Item>
 
-        <Form.Item
-          name="Password"
-          rules={[{
-            required: true,
-            message: 'Поле должно быть заполнено'
-          }]}
-        >
-          <Input.Password placeholder="Пароль" />
-        </Form.Item>
-
-        <Link to="/passwordRecovery" className={style.forgotPassword}>Забыли пароль?</Link>
-
         <Button
           className={style.btn}
           type="primary"
@@ -63,15 +53,16 @@ const Authorization: FC = () => {
           block
           size='large'
         >
-          Войти
+          Далее
         </Button>
       </Form>
 
       <div className={style.subInfo}>
-        Еще нет аккаунта? <Link to={"/registration"}>Зарегистрироваться</Link>
+        <Link to={"/authorization"}>Вход</Link>
+        <Link to={"/registration"}>Регистрация</Link>
       </div>
     </FormWrapper>
   )
 }
 
-export default Authorization
+export default PasswordRecovery

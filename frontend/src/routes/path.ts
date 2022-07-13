@@ -1,7 +1,11 @@
 export enum Path {
 	Index = "/",
 	Auth = "authorization",
-	// Reg = "registration",
+	Reg = "registration",
+
+	PasswordRecovery = "passwordRecovery",
+	PasswordRecoveryCode = "passwordRecoveryCode",
+	PasswordRecoveryChanging = "passwordRecoveryChanging"
 
 	// Income = "income",
 

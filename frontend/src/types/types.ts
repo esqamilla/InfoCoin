@@ -7,3 +7,28 @@ export enum MainMenuItems {
 	Notes = "Notes",
 	None = ""
 }
+
+export interface AuthorizationData {
+	Email: string;
+	Password: string;
+}
+
+export interface RegistrationData {
+	Name: string;
+	Email: string,
+	Password: string;
+	RepeatPassword: string;
+}
+
+export interface RecoveryData {
+	Email: string;
+}
+
+export interface RecoveryCodeData {
+	Code: string;
+}
+
+export interface RecoveryChangingData {
+	NewPassword: string;
+	RepeatPassword: string;
+}
