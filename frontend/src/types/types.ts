@@ -32,3 +32,5 @@ export interface RecoveryChangingData {
 	NewPassword: string;
 	RepeatPassword: string;
 }
+
+export type FinanceTabs = "table" | "calendar";

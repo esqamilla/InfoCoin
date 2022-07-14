@@ -14,7 +14,7 @@ const MainMenu: FC = ({}) => {
         popupOffset={[-30, -20]}
       >
         <Menu.Item key={MainMenuItems.Income}>
-          <Link to="/income">Доходы</Link>
+          <Link to="/incomeTable">Доходы</Link>
         </Menu.Item>
         <Menu.Item key={MainMenuItems.Expenses}>
           <Link to="/expenses">Расходы</Link>

@@ -297,3 +297,32 @@
 		min-height: 80px;
 	}
 }
+
+
+
+// Tabs
+
+.ant-tabs-tab {
+	padding: 0 !important;
+	margin-right: 10px !important;
+
+	.anticon {
+		margin-right: 0;
+		font-size: 40px;
+	}
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+	color: $pink;
+
+	&:hover {
+		color: $pink  !important;
+	}
+}
+
+.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-active,
+.ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab-active,
+.ant-tabs-card>.ant-tabs-nav .ant-tabs-tab,
+.ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab {
+	background: transparent;
+}

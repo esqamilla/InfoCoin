@@ -2,7 +2,7 @@ import React, {FC, ReactElement} from 'react'
 import style from "./container.module.scss"
 
 interface ContainerProps {
-	children: ReactElement;
+	children: ReactElement[] | ReactElement;
 }
 
 const Contanier: FC<ContainerProps> = ({ children }) => {

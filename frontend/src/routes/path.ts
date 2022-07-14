@@ -5,9 +5,10 @@ export enum Path {
 
 	PasswordRecovery = "passwordRecovery",
 	PasswordRecoveryCode = "passwordRecoveryCode",
-	PasswordRecoveryChanging = "passwordRecoveryChanging"
+	PasswordRecoveryChanging = "passwordRecoveryChanging",
 
-	// Income = "income",
+	IncomeTable = "incomeTable",
+	IncomeCalendar = "incomeCalendar",
 
 	// Expenses = "expenses",
 
