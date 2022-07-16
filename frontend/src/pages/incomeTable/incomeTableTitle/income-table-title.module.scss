@@ -1,0 +1,100 @@
+@import '../../../assets/scss/var.scss';
+
+.colTitleWrapper {
+	display: flex;
+	align-items: center;
+	font-size: 16px;
+	position: relative;
+}
+
+.title {
+	position: relative;
+	z-index: 2;
+	margin-bottom: 0 !important;
+}
+
+.secondTitle {
+	width: 100%;
+	text-align: center;
+}
+
+.icon {
+	font-size: 30px;
+	margin-right: 21px;
+	position: relative;
+	z-index: 2;
+}
+
+.background {
+	width: calc(100% + 32px);
+	height: calc(100% + 50px);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	opacity: 0.4;
+
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.hoverBackground {
+	width: calc(100% + 32px);
+	height: calc(100% + 50px);
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 3;
+	background: linear-gradient(270deg, #FFFFFF -100%, rgba(255, 255, 255, 0.9) 8.33%, rgba(255, 255, 255, 0) 100%);
+	opacity: 0;
+
+	transition: opacity 0.38s ease-in-out;
+	transform: translate3d(-50%, -50%, 0);
+}
+
+.isHover {
+	opacity: 1;
+
+	transition: opacity 0.38s ease-in-out;
+}
+
+.btn {
+	height: 80px;
+	width: 50px;
+	color: $black;
+	padding-right: 10px;
+
+	>span {
+		font-size: 40px;
+	}
+
+	&:hover,
+	&:focus {
+		color: $black;
+	}
+}
+
+.btnClose {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	color: $black;
+
+	&:hover,
+	&:focus {
+		color: $primary;
+	}
+}
+
+.btnMenu {
+	margin-left: -15px;
+	color: $black;
+
+	&:hover,
+	&:focus {
+		color: $primary;
+	}
+}

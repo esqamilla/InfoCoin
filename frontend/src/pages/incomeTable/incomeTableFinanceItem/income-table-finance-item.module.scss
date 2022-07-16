@@ -1,0 +1,21 @@
+@import '../../../assets/scss/var.scss';
+
+.btnEdit {
+	opacity: 0;
+	color: $primary;
+
+	&:hover,
+	&:focus {
+		color: $primary;
+	}
+
+	transition: opacity 0.38s ease-in-out;
+}
+
+.finacneItem {
+	&:hover {
+		.btnEdit {
+			opacity: 1;
+		}
+	}
+}

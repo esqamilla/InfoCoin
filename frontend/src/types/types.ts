@@ -34,3 +34,34 @@ export interface RecoveryChangingData {
 }
 
 export type FinanceTabs = "table" | "calendar";
+
+export interface IncomeData {
+	categories: Category[],
+	limits: Limit[],
+	financeItems: FinanceItem[]
+}
+
+export interface Category {
+	id: number,
+	title: string,
+	icon: string,
+	color: string,
+	endDate: string | null
+}
+
+export interface Limit {
+	id: number,
+	limit: number,
+	startDate: string,
+	endDate: string,
+	// categoryId: number,
+	category: Category
+}
+
+export interface FinanceItem {
+	id: number,
+	cost: number,
+	description: string,
+	date: string,
+	categoryId: number
+}

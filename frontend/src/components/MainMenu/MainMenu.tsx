@@ -4,6 +4,8 @@ import style from "./main-menu.module.scss";
 import {Link} from 'react-router-dom';
 import { MainMenuItems } from '../../types/types';
 
+const menuItems = {}
+
 const MainMenu: FC = ({}) => {
   return (
     <Menu mode="horizontal" className={style.menu} defaultOpenKeys={[MainMenuItems.None]}>

@@ -320,9 +320,77 @@
 	}
 }
 
+.ant-tabs-tab-btn:focus,
+.ant-tabs-tab-remove:focus,
+.ant-tabs-tab-btn:active,
+.ant-tabs-tab-remove:active {
+	color: $pink;
+}
+
+.ant-tabs-tab-btn {
+
+	a:active,
+	a:hover {
+		color: $pink;
+	}
+}
+
 .ant-tabs-card>.ant-tabs-nav .ant-tabs-tab-active,
 .ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab-active,
 .ant-tabs-card>.ant-tabs-nav .ant-tabs-tab,
 .ant-tabs-card>div>.ant-tabs-nav .ant-tabs-tab {
 	background: transparent;
+}
+
+
+
+// Table
+.ant-table-tbody {
+	td {
+		vertical-align: top;
+	}
+}
+
+.ant-table-thead {
+	font-size: 20px;
+	font-weight: 500;
+	text-transform: uppercase;
+}
+
+.ant-table-thead>tr>th,
+.ant-table-tbody>tr>td,
+.ant-table tfoot>tr>th,
+.ant-table tfoot>tr>td {
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
+
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tfoot>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tfoot>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tfoot>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tfoot>tr>td {
+	border-color: $black;
+}
+
+.ant-table-content {
+	table {
+		border-left: 1px solid $black;
+	}
+}
+
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table {
+	border-top: 1px solid $black;
 }
