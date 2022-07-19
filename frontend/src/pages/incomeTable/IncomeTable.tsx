@@ -5,7 +5,7 @@ import {Path} from '../../routes/path'
 import {Affix, Button, Table, Tag, Tooltip} from 'antd'
 import {dataTest, dataTest2, incomeTableData, incomeTableDataTest} from '../../mock/mock'
 import {FinanceItem} from '../../types/types'
-import {EditOutlined, QuestionCircleOutlined} from '@ant-design/icons'
+import {EditOutlined, PlusOutlined, QuestionCircleOutlined} from '@ant-design/icons'
 import Paragraph from 'antd/lib/typography/Paragraph'
 import IncomeTableColLimit, {TableColLimit} from './incomeTableColLimit/IncomeTableColLimit'
 import IncomeTableTitle from './incomeTableTitle/IncomeTableTitle'
@@ -45,6 +45,26 @@ const IncomeTable: FC = () => {
       render: (date: string) => (
         <div className={style.date}>{date}</div>
       )
+    },
+  ]
+  const initialColumnRightSide = [
+    {
+      title: (<PlusOutlined className={style.addIcon} />),
+      width: 70,
+      dataIndex: 'add',
+      key: 'add',
+      fixed: 'right',
+      align: "center",
+      onCell: (_: any, index: number) => {
+        if (index === 0) {
+          return {
+            rowSpan: 101
+          }
+        }
+        if (index > 0) return {
+          colSpan: 0,
+        }
+      },
     },
   ]
 
@@ -92,7 +112,7 @@ const IncomeTable: FC = () => {
       key: category.id,
     }))
 
-    setColumns([...initialColumns, ...newColumns])
+    setColumns([...initialColumns, ...newColumns, ...initialColumnRightSide])
 
     const transformedData: {
         date: string;
@@ -156,23 +176,32 @@ const IncomeTable: FC = () => {
     setIncomeData(data);
   }, [incomeTableDataTest])
 
+  console.log("process.env.REACT_APP_API", process.env.REACT_APP_API)
+
+  const getUsers = () => fetch("http://localhost:5000/api/User")
+    .then(res => res.json())
+    .then(data => console.log("data", data))
+
   return (
     <FinanceLayout
       selectedTab={"table"}
       tableLink={Path.IncomeTable}
       calendarLink={Path.IncomeCalendar}
     >
-      <Table
-        dataSource={incomeData}
-        columns={columns}
-        loading={!incomeData}
-        pagination={false}
-        bordered
-        scroll={{
-          x: "calc(00px + 50%)",
-          // y: 100,
-        }}
-      />
+      <>
+        <Button onClick={getUsers}>getUsersFromAPI</Button>
+        <Table
+          dataSource={incomeData}
+          columns={columns}
+          loading={!incomeData}
+          pagination={false}
+          bordered
+          scroll={{
+            x: "calc(00px + 50%)",
+            // y: 100,
+          }}
+        />
+      </>
     </FinanceLayout>
   )
 }

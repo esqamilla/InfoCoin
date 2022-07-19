@@ -381,16 +381,43 @@
 .ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tfoot>tr>td,
 .ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tfoot>tr>td,
 .ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tfoot>tr>td {
-	border-color: $black;
+	border-color: $black  !important;
 }
 
 .ant-table-content {
 	table {
-		border-left: 1px solid $black;
+		border-left: 1px solid $black  !important;
 	}
 }
 
 .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table,
 .ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table {
-	border-top: 1px solid $black;
+	border-top: 1px solid $black  !important;
+}
+
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>thead>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tbody>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tfoot>tr>th,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tfoot>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-header>table>tfoot>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-body>table>tfoot>tr>td,
+.ant-table.ant-table-bordered>.ant-table-container>.ant-table-summary>table>tfoot>tr>td {
+	border-color: $black  !important;
+	border-right: 1px solid $black  !important;
+}
+
+
+
+// Calendar
+.ant-picker-calendar {
+	background: transparent;
 }
