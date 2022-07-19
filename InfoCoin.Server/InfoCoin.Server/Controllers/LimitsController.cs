@@ -13,11 +13,11 @@ namespace InfoCoin.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class LimitsController : ControllerBase
     {
         private readonly IConfiguration _configuration;
 
-        public CategoryController(IConfiguration configuration)
+        public LimitsController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -25,7 +25,7 @@ namespace InfoCoin.Server.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select CategoryID, [Name], Icon, Color, EndDate, TypeId, StartDate from dbo.Category";
+            string query = @"select LimitID, LimitValue, StartDate, EndDate, CategoryID from dbo.Limits";
 
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("InfoCoinAppCon");
@@ -49,8 +49,8 @@ namespace InfoCoin.Server.Controllers
         [HttpGet("{id}")]
         public JsonResult Get(int id)
         {
-            string query = @"select CategoryID, [Name], Icon, Color, EndDate, TypeId, StartDate from dbo.Category
-                                where CategoryID = " + id + @"
+            string query = @"select LimitID, LimitValue, StartDate, EndDate, CategoryID from dbo.Limits
+                                where LimitID = " + id + @"
                             ";
 
             DataTable table = new DataTable();
@@ -73,11 +73,11 @@ namespace InfoCoin.Server.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(Category category)
+        public JsonResult Post(Limits limit)
         {
             string query = @"
-                insert into [dbo].Category values
-                ('" + category.Name + @"','" + category.Icon + @"','" + category.Color + @"', null,'" + category.TypeId + @"', null)
+                insert into [dbo].Limits values
+                ('" + limit.LimitValue + @"','" + limit.StartDate + @"','" + limit.EndDate + @"','" + limit.CategoryId + @"')
             ";
 
             DataTable table = new DataTable();
@@ -96,22 +96,20 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Категория успешно добавлена");
+            return new JsonResult("Лимит успешно добавлен");
         }
 
         [HttpPatch]
-        public JsonResult Patch(Category category)
+        public JsonResult Patch(Limits limit)
         {
             string query = @"
-                update [dbo].Category set
+                update [dbo].Limits set
                 
-                Name = '" + category.Name + @"',
-                Icon = '" + category.Icon + @"',
-                Color = '" + category.Color + @"',
-                EndDate = '" + category.EndDate + @"',
-                TypeId = '" + category.TypeId + @"',
-                StartDate = '" + category.StartDate + @"'
-                where CategoryID = " + category.CategoryId + @"
+                LimitValue = '" + limit.LimitValue + @"',
+                StartDate = '" + limit.StartDate + @"',
+                EndDate = '" + limit.EndDate + @"',
+                CategoryID = '" + limit.CategoryId + @"'
+                where LimitID = " + limit.LimitId + @"
             ";
 
             DataTable table = new DataTable();
@@ -130,15 +128,15 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Категория успешно изменена");
+            return new JsonResult("Лимит успешно изменен");
         }
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
         {
             string query = @"
-                delete from [dbo].Category
-                where CategoryID = " + id + @"
+                delete from [dbo].Limits
+                where LimitID = " + id + @"
             ";
 
             DataTable table = new DataTable();
@@ -157,8 +155,7 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Категория успешно удалена");
+            return new JsonResult("Лимит успешно удален");
         }
-
     }
 }

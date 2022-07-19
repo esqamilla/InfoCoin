@@ -13,11 +13,11 @@ namespace InfoCoin.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CategoryController : ControllerBase
+    public class FinancesController : ControllerBase
     {
         private readonly IConfiguration _configuration;
 
-        public CategoryController(IConfiguration configuration)
+        public FinancesController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -25,7 +25,7 @@ namespace InfoCoin.Server.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select CategoryID, [Name], Icon, Color, EndDate, TypeId, StartDate from dbo.Category";
+            string query = @"select FinanceID, UserID, TypeID, CategoryID from dbo.Finances";
 
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("InfoCoinAppCon");
@@ -49,8 +49,8 @@ namespace InfoCoin.Server.Controllers
         [HttpGet("{id}")]
         public JsonResult Get(int id)
         {
-            string query = @"select CategoryID, [Name], Icon, Color, EndDate, TypeId, StartDate from dbo.Category
-                                where CategoryID = " + id + @"
+            string query = @"select FinanceID, UserID, TypeID, CategoryID from dbo.Finances
+                                where FinanceID = " + id + @"
                             ";
 
             DataTable table = new DataTable();
@@ -73,11 +73,11 @@ namespace InfoCoin.Server.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(Category category)
+        public JsonResult Post(Finances finances)
         {
             string query = @"
-                insert into [dbo].Category values
-                ('" + category.Name + @"','" + category.Icon + @"','" + category.Color + @"', null,'" + category.TypeId + @"', null)
+                insert into [dbo].Finances values
+                ('" + finances.UserId + @"','" + finances.TypeId + @"','" + finances.CategoryId + @"')
             ";
 
             DataTable table = new DataTable();
@@ -96,22 +96,19 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Категория успешно добавлена");
+            return new JsonResult("Операция успешно добавлена");
         }
 
         [HttpPatch]
-        public JsonResult Patch(Category category)
+        public JsonResult Patch(Finances finances)
         {
             string query = @"
-                update [dbo].Category set
+                update [dbo].Finances set
                 
-                Name = '" + category.Name + @"',
-                Icon = '" + category.Icon + @"',
-                Color = '" + category.Color + @"',
-                EndDate = '" + category.EndDate + @"',
-                TypeId = '" + category.TypeId + @"',
-                StartDate = '" + category.StartDate + @"'
-                where CategoryID = " + category.CategoryId + @"
+                UserID = '" + finances.UserId + @"',
+                TypeID = '" + finances.TypeId + @"',
+                CategoryID = '" + finances.CategoryId + @"'
+                where FinanceID = " + finances.FinanceId + @"
             ";
 
             DataTable table = new DataTable();
@@ -130,15 +127,15 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Категория успешно изменена");
+            return new JsonResult("Операция успешно изменена");
         }
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
         {
             string query = @"
-                delete from [dbo].Category
-                where CategoryID = " + id + @"
+                delete from [dbo].Finances
+                where FinanceID = " + id + @"
             ";
 
             DataTable table = new DataTable();
@@ -157,7 +154,7 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Категория успешно удалена");
+            return new JsonResult("Операция успешно удалена");
         }
 
     }
