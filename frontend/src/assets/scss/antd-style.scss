@@ -415,6 +415,20 @@
 	border-right: 1px solid $black  !important;
 }
 
+.ant-table {
+	&-thead {
+		&>tr>th:last-child {
+			border-left: 1px solid $black;
+		}
+	}
+
+	&-tbody {
+		&>tr:nth-child(2)>td:last-child {
+			border-left: 1px solid $black;
+		}
+	}
+}
+
 
 
 // Calendar

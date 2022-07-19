@@ -176,9 +176,11 @@ const IncomeTable: FC = () => {
     setIncomeData(data);
   }, [incomeTableDataTest])
 
-  console.log("process.env.REACT_APP_API", process.env.REACT_APP_API)
+  const getUsers = () => fetch(process.env.REACT_APP_API+"User")
+    .then(res => res.json())
+    .then(data => console.log("data", data))
 
-  const getUsers = () => fetch("http://localhost:5000/api/User")
+  const getUserById = (id: number) => fetch(process.env.REACT_APP_API+"User"+`/${id}`)
     .then(res => res.json())
     .then(data => console.log("data", data))
 
@@ -189,7 +191,8 @@ const IncomeTable: FC = () => {
       calendarLink={Path.IncomeCalendar}
     >
       <>
-        <Button onClick={getUsers}>getUsersFromAPI</Button>
+        <Button onClick={getUsers} type={"primary"}>getUsersFromAPI</Button>
+        <Button onClick={() => getUserById(3)} type={"primary"}>get user by id = 3</Button>
         <Table
           dataSource={incomeData}
           columns={columns}
@@ -197,8 +200,8 @@ const IncomeTable: FC = () => {
           pagination={false}
           bordered
           scroll={{
-            x: "calc(00px + 50%)",
-            // y: 100,
+            x: "calc(500px + 50%)",
+            // y: 300,
           }}
         />
       </>
