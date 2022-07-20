@@ -22,6 +22,8 @@ const RouteComponents: TRouteComponents = {
   PasswordRecoveryChanging: loadable(() => import("../pages/passwordRecoveryChanging/PasswordRecoveryChanging")),
   IncomeTable: loadable(() => import("../pages/incomeTable/IncomeTable")),
   IncomeCalendar: loadable(() => import("../pages/incomeCalendar/IncomeCalendar")),
+  Notes: loadable(() => import("../pages/notes/Notes")),
+  Reports: loadable(() => import("../pages/reports/Reports")),
 };
 
 export const routes: Routes = {
@@ -56,5 +58,13 @@ export const routes: Routes = {
   IncomeCalendar: {
     path: Path.IncomeCalendar,
     element: <RouteComponents.IncomeCalendar />,
+  },
+  Notes: {
+    path: Path.Notes,
+    element: <RouteComponents.Notes />,
+  },
+  Reports: {
+    path: Path.Reports,
+    element: <RouteComponents.Reports />,
   },
 };

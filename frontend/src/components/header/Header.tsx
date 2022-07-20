@@ -2,7 +2,7 @@ import React, {FC} from 'react'
 import { Col, Layout, Row } from 'antd';
 import Contanier from '../container/Contanier';
 import style from "./header.module.scss";
-import {Link, useParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import logo from "../../assets/images/logo.svg";
 import concatClasses from '../../utils/concatClasses';
 import ProfilePopover from '../ProfilePopover/ProfilePopover';
@@ -12,9 +12,6 @@ const { Header: MainHeader } = Layout;
 
 const Header: FC = ({}) => {
   const isAuth = true;
-  const params = useParams();
-
-  console.log("params", params);
 
   return (
     <MainHeader className={style.header}>

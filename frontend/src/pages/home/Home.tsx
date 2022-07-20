@@ -50,8 +50,9 @@ const Home: FC = () => {
       </div>
       <div className={style.inner}>
 
-        {homeItems.map(item => (
+        {homeItems.map((item, index) => (
           <HomeItem
+            key={index}
             icon={item.icon}
             title={item.title}
             description={item.description}

@@ -1,35 +1,36 @@
-import React, {FC} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import { Menu } from 'antd';
 import style from "./main-menu.module.scss";
-import {Link} from 'react-router-dom';
+import {Link, useLocation} from 'react-router-dom';
 import { MainMenuItems } from '../../types/types';
-
-const menuItems = {}
+import {Path} from '../../routes/path';
 
 const MainMenu: FC = ({}) => {
+  const { pathname: path } = useLocation();
+
   return (
-    <Menu mode="horizontal" className={style.menu} defaultOpenKeys={[MainMenuItems.None]}>
+    <Menu mode="horizontal" className={style.menu} defaultSelectedKeys={[path.replace("/", "") as MainMenuItems]}>
       <Menu.SubMenu
-        key={MainMenuItems.Finance}
+        key={"finance"}
         title={<Link to="/finance">Финансы</Link>}
         popupClassName='antd__popup'
         popupOffset={[-30, -20]}
       >
-        <Menu.Item key={MainMenuItems.Income}>
+        <Menu.Item key={"income"}>
           <Link to="/incomeTable">Доходы</Link>
         </Menu.Item>
-        <Menu.Item key={MainMenuItems.Expenses}>
+        <Menu.Item key={"expenses"}>
           <Link to="/expenses">Расходы</Link>
         </Menu.Item>
       </Menu.SubMenu>
-      <Menu.Item key={MainMenuItems.Savings}>
+      <Menu.Item key={"savings"}>
         <Link to="/savings">Накопления</Link>
       </Menu.Item>
-      <Menu.Item key={MainMenuItems.Reports}>
+      <Menu.Item key={"reports"}>
         <Link to="/reports">Отчеты</Link>
       </Menu.Item>
-      <Menu.Item key={MainMenuItems.Notes}>
-        <Link to="/notes">Заметки</Link>
+      <Menu.Item key={'notes'}>
+        <Link to={`/${Path.Notes}`}>Заметки</Link>
       </Menu.Item>
     </Menu>
   )

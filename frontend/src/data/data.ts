@@ -1,1 +1,1 @@
-export const homeItemData = []
+export const reportsSections = ["Расходы", "Доходы", "Анализ бюджета"];

@@ -12,7 +12,7 @@ interface IncomeTableFinanceItemProps {
 const IncomeTableFinanceItem: FC<IncomeTableFinanceItemProps> = ({ cost, description, tooltipText = "Редактировать" }) => {
   return (
     <div className={style.finacneItem}>
-      {cost} — {description}
+      <b style={{ fontWeight: 600 }}>{cost}</b> — {description}
       <Tooltip title={tooltipText}>
         <Button
           className={style.btnEdit}

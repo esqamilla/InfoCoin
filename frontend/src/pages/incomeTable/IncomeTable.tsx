@@ -11,8 +11,10 @@ import IncomeTableColLimit, {TableColLimit} from './incomeTableColLimit/IncomeTa
 import IncomeTableTitle from './incomeTableTitle/IncomeTableTitle'
 import concatClasses from '../../utils/concatClasses'
 import IncomeTableFinanceItem from './incomeTableFinanceItem/IncomeTableFinanceItem'
+import Modal from '../../components/modal/Modal'
 
 const IncomeTable: FC = () => {
+	const [visible, setVisible] = useState(false);
   const initialColumns = [
     {
       title: <IncomeTableTitle title={"Лимиты"}/>,
@@ -159,13 +161,13 @@ const IncomeTable: FC = () => {
       date: item.date,
       1: item.categories.map((category: any) => {
         if (1 === category.categoryId)
-          return category.items.map((item: any) => <IncomeTableFinanceItem tooltipText='Редактировать трату' cost={item.cost} description={item.description} />)
+          return category.items.map((item: any) => <IncomeTableFinanceItem tooltipText='' cost={item.cost} description={item.description} />)
         else
           <></>
       }),
       2: item.categories.map((category: any) => {
         if (2 === category.categoryId)
-          return category.items.map((item: any) => <IncomeTableFinanceItem tooltipText='Редактировать трату' cost={item.cost} description={item.description} />)
+          return category.items.map((item: any) => <IncomeTableFinanceItem tooltipText='' cost={item.cost} description={item.description} />)
         else
           <></>
       }),
@@ -185,27 +187,37 @@ const IncomeTable: FC = () => {
     .then(data => console.log("data", data))
 
   return (
-    <FinanceLayout
-      selectedTab={"table"}
-      tableLink={Path.IncomeTable}
-      calendarLink={Path.IncomeCalendar}
-    >
-      <>
-        <Button onClick={getUsers} type={"primary"}>getUsersFromAPI</Button>
-        <Button onClick={() => getUserById(3)} type={"primary"}>get user by id = 3</Button>
-        <Table
-          dataSource={incomeData}
-          columns={columns}
-          loading={!incomeData}
-          pagination={false}
-          bordered
-          scroll={{
-            x: "calc(500px + 50%)",
-            // y: 300,
-          }}
-        />
-      </>
-    </FinanceLayout>
+    <>
+      <FinanceLayout
+        selectedTab={"table"}
+        tableLink={Path.IncomeTable}
+        calendarLink={Path.IncomeCalendar}
+      >
+        <>
+          <Button onClick={() => setVisible(true)} type={"primary"}>Редактировать</Button>
+          <Button onClick={() => getUserById(3)} type={"primary"}>get user by id = 3</Button>
+          <Table
+            dataSource={incomeData}
+            columns={columns}
+            loading={!incomeData}
+            pagination={false}
+            bordered
+            scroll={{
+              x: "calc(500px + 50%)",
+              // y: 300,
+            }}
+          />
+        </>
+      </FinanceLayout>
+
+      <Modal
+        title="РЕДАКТИРОВАНИЕ ТРАТЫ"
+        visible={visible}
+        setVisible={setVisible}
+      >
+        <>*children*</>
+      </Modal>
+    </>
   )
 }
 

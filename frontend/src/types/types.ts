@@ -1,12 +1,10 @@
-export enum MainMenuItems {
-	Finance = "Finance",
-	Income = "Income",
-	Expenses = "Expenses",
-	Savings = "Savings",
-	Reports = "Reports",
-	Notes = "Notes",
-	None = ""
-}
+export type MainMenuItems = "finance"
+	| "income"
+	| "expenses"
+	| "savings"
+	| "reports"
+	| "notes"
+	| "";
 
 export interface AuthorizationData {
 	Email: string;
@@ -64,4 +62,16 @@ export interface FinanceItem {
 	description: string,
 	date: string,
 	categoryId: number
+}
+
+export type ReportsSections = "Расходы" | "Доходы" | "Анализ бюджета";
+
+export interface ChartData {
+	labels: string[];
+	datasets: {
+		label: string;
+		data: number[];
+		backgroundColor: string[];
+		borderWidth: number;
+	}[];
 }

@@ -10,11 +10,11 @@ export enum Path {
 	IncomeTable = "incomeTable",
 	IncomeCalendar = "incomeCalendar",
 
+	Notes = "notes",
+
 	// Expenses = "expenses",
 
 	// Savings = "savings",
 
-	// Reports = "reports",
-
-	// Notes = "notes"
+	Reports = "reports",
 }

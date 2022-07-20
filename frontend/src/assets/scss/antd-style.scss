@@ -95,6 +95,7 @@
 
 .ant-menu-horizontal>.ant-menu-item a:hover {
 	color: inherit !important;
+	display: block;
 }
 
 .ant-menu-item-selected a,
@@ -150,6 +151,33 @@
 			color: $primary;
 			background-color: transparent;
 			border-color: $primary;
+		}
+	}
+}
+
+.ant-btn {
+	&-link {
+		color: $primary;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: $primary;
+		}
+	}
+
+	&-default {
+		color: #736868;
+		border: 1px solid #736868;
+
+		transition: border-color 0.38s ease-in-out,
+			color 0.38s ease-in-out;
+
+		&:hover,
+		&:active,
+		&:focus {
+			color: $primary  !important;
+			border: 1px solid $primary;
 		}
 	}
 }
@@ -434,4 +462,119 @@
 // Calendar
 .ant-picker-calendar {
 	background: transparent;
+}
+
+
+
+// Card
+.ant-card {
+
+	&-body {
+		height: 130px;
+		text-overflow: ellipsis;
+		overflow: hidden;
+		font-size: 14px;
+		font-weight: 300;
+	}
+
+	&-bordered {
+		border: 1px solid #999;
+
+		.ant-card-head-title {
+			font-size: 20px;
+			font-weight: 400;
+		}
+	}
+}
+
+
+
+// Typography
+.ant-typography {
+	&-edit {
+		color: $primary;
+
+		transition: color 0.38s ease-in-out;
+
+		&:hover,
+		&:focus,
+		&:active {
+			color: $pink;
+		}
+	}
+}
+
+
+
+// Drawer
+.ant-drawer {
+	z-index: $drawerIndex;
+
+	.ant-drawer-header {
+		.ant-input {
+			padding: 5px 12px !important;
+			font-size: 16px;
+			font-weight: 600;
+			line-height: 1.5;
+			color: $black;
+			border-radius: 0;
+		}
+	}
+
+	&-body {
+
+		.ant-input {
+			height: 100% !important;
+			padding: 0 !important;
+			margin: 5px 12px !important;
+			font-size: 16px;
+			font-weight: 400;
+			line-height: 1.5715;
+			color: $black;
+			border: none;
+			filter: none !important;
+			border-radius: 0;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+}
+
+
+
+// Modal
+.ant-modal-wrap {
+	z-index: $modalIndex;
+}
+
+.ant-modal-content {
+	border-radius: 10px;
+	overflow: hidden;
+	background-color: #F1F3CE;
+}
+
+.ant-modal-body {
+	min-height: 400px;
+	padding: 60px 25px 50px;
+}
+
+.ant-modal-header {
+	padding: 25px 25px 0;
+	border: none;
+	text-align: center;
+	background-color: #F1F3CE;
+
+	.ant-modal-title {
+		text-transform: uppercase;
+		color: $primary;
+		font-size: 35px;
+		font-weight: 500;
+	}
+}
+
+.ant-modal-footer {
+	padding: 0 25px 25px;
+	border-top: 0;
 }

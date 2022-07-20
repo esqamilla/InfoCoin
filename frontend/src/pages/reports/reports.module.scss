@@ -1,0 +1,45 @@
+@import "../../assets/scss/var.scss";
+
+.wrapper {
+	margin: 50px 0;
+}
+
+.sections {
+	width: 800px;
+	margin: 0 auto;
+}
+
+.content {
+	width: 800px;
+	margin: 20px auto 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.btn {
+	width: 40px;
+	height: 40px;
+}
+
+.icon {
+	font-size: 40px;
+}
+
+.chart {
+	width: 450px;
+	min-height: calc(100vh - 80px - 36px - 100px - 50px - 50px);
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
