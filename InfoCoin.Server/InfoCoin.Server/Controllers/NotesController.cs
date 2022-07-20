@@ -1,23 +1,23 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using System.Data.SqlClient;
-using System.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using InfoCoin.Server.Models;
 
-
 namespace InfoCoin.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FinanceItemController : ControllerBase
+    public class NotesController : ControllerBase
     {
         private readonly IConfiguration _configuration;
 
-        public FinanceItemController(IConfiguration configuration)
+        public NotesController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -25,7 +25,7 @@ namespace InfoCoin.Server.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select FinanceItemID, Cost, [Description], [Date], FinanceID from dbo.FinanceItem";
+            string query = @"select NoteID, [Name], [Description], UserID from dbo.Notes";
 
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("InfoCoinAppCon");
@@ -49,8 +49,8 @@ namespace InfoCoin.Server.Controllers
         [HttpGet("{id}")]
         public JsonResult Get(int id)
         {
-            string query = @"select Cost, [Description], [Date], FinanceID from dbo.FinanceItem
-                                where FinanceItemID = " + id + @"
+            string query = @"select NoteID, [Name], [Description], UserID from dbo.Notes
+                                where NoteID = " + id + @"
                             ";
 
             DataTable table = new DataTable();
@@ -73,11 +73,11 @@ namespace InfoCoin.Server.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(FinanceItem financeItem)
+        public JsonResult Post(Note note)
         {
             string query = @"
-                insert into [dbo].FinanceItem values
-                ('" + financeItem.Cost + @"','" + financeItem.Description + @"','" + financeItem.Date + @"','" + financeItem.FinanceId + @"')
+                insert into [dbo].Notes values
+                ('" + note.Name + @"','" + note.Description + @"','" + note.UserId + @"')
             ";
 
             DataTable table = new DataTable();
@@ -96,20 +96,19 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Операция успешно добавлена");
+            return new JsonResult("Заметка успешно добавлена");
         }
 
         [HttpPatch]
-        public JsonResult Patch(FinanceItem financeitem)
+        public JsonResult Patch(Note note)
         {
             string query = @"
-                update [dbo].FinanceItem set
+                update [dbo].Notes set
                 
-                Cost = '" + financeitem.Cost + @"',
-                [Description] = '" + financeitem.Description + @"',
-                [Date] = '" + financeitem.Date + @"',
-                FinanceID = '" + financeitem.FinanceId + @"'
-                where FinanceItemID = " + financeitem.FinanceItemId + @"
+                [Name] = '" + note.Name + @"',
+                [Description] = '" + note.Description + @"',
+                UserID = '" + note.UserId + @"'
+                where NoteID = " + note.NoteId + @"
             ";
 
             DataTable table = new DataTable();
@@ -128,15 +127,15 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Операция успешно изменена");
+            return new JsonResult("Заметка успешно изменена");
         }
 
         [HttpDelete("{id}")]
         public JsonResult Delete(int id)
         {
             string query = @"
-                delete from [dbo].FinanceItem
-                where FinanceItemID = " + id + @"
+                delete from [dbo].Notes
+                where NoteID = " + id + @"
             ";
 
             DataTable table = new DataTable();
@@ -155,7 +154,7 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Операция успешно удалена");
+            return new JsonResult("Заметка успешно удалена");
         }
     }
 }

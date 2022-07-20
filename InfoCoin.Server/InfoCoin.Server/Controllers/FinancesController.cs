@@ -1,23 +1,23 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using System.Data.SqlClient;
-using System.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using System.Data.SqlClient;
 using System.Data;
 using InfoCoin.Server.Models;
 
-
 namespace InfoCoin.Server.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class FinanceItemController : ControllerBase
+    public class FinancesController : ControllerBase
     {
         private readonly IConfiguration _configuration;
 
-        public FinanceItemController(IConfiguration configuration)
+        public FinancesController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -25,7 +25,7 @@ namespace InfoCoin.Server.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select FinanceItemID, Cost, [Description], [Date], FinanceID from dbo.FinanceItem";
+            string query = @"select FinanceID, UserID, TypeID, CategoryID from dbo.Finances";
 
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("InfoCoinAppCon");
@@ -49,8 +49,8 @@ namespace InfoCoin.Server.Controllers
         [HttpGet("{id}")]
         public JsonResult Get(int id)
         {
-            string query = @"select Cost, [Description], [Date], FinanceID from dbo.FinanceItem
-                                where FinanceItemID = " + id + @"
+            string query = @"select FinanceID, UserID, TypeID, CategoryID from dbo.Finances
+                                where FinanceID = " + id + @"
                             ";
 
             DataTable table = new DataTable();
@@ -73,11 +73,11 @@ namespace InfoCoin.Server.Controllers
         }
 
         [HttpPost]
-        public JsonResult Post(FinanceItem financeItem)
+        public JsonResult Post(Finances finances)
         {
             string query = @"
-                insert into [dbo].FinanceItem values
-                ('" + financeItem.Cost + @"','" + financeItem.Description + @"','" + financeItem.Date + @"','" + financeItem.FinanceId + @"')
+                insert into [dbo].Finances values
+                ('" + finances.UserId + @"','" + finances.TypeId + @"','" + finances.CategoryId + @"')
             ";
 
             DataTable table = new DataTable();
@@ -100,16 +100,15 @@ namespace InfoCoin.Server.Controllers
         }
 
         [HttpPatch]
-        public JsonResult Patch(FinanceItem financeitem)
+        public JsonResult Patch(Finances finances)
         {
             string query = @"
-                update [dbo].FinanceItem set
+                update [dbo].Finances set
                 
-                Cost = '" + financeitem.Cost + @"',
-                [Description] = '" + financeitem.Description + @"',
-                [Date] = '" + financeitem.Date + @"',
-                FinanceID = '" + financeitem.FinanceId + @"'
-                where FinanceItemID = " + financeitem.FinanceItemId + @"
+                UserID = '" + finances.UserId + @"',
+                TypeID = '" + finances.TypeId + @"',
+                CategoryID = '" + finances.CategoryId + @"'
+                where FinanceID = " + finances.FinanceId + @"
             ";
 
             DataTable table = new DataTable();
@@ -135,8 +134,8 @@ namespace InfoCoin.Server.Controllers
         public JsonResult Delete(int id)
         {
             string query = @"
-                delete from [dbo].FinanceItem
-                where FinanceItemID = " + id + @"
+                delete from [dbo].Finances
+                where FinanceID = " + id + @"
             ";
 
             DataTable table = new DataTable();
@@ -157,5 +156,6 @@ namespace InfoCoin.Server.Controllers
 
             return new JsonResult("Операция успешно удалена");
         }
+
     }
 }
