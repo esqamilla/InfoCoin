@@ -121,3 +121,4 @@ D:\web\git\InfoCoin\InfoCoin.Server\InfoCoin.Server\obj\Debug\net5.0\InfoCoin.Se
 D:\web\git\InfoCoin\InfoCoin.Server\InfoCoin.Server\obj\Debug\net5.0\ref\InfoCoin.Server.dll
 D:\web\git\InfoCoin\InfoCoin.Server\InfoCoin.Server\obj\Debug\net5.0\InfoCoin.Server.pdb
 D:\web\git\InfoCoin\InfoCoin.Server\InfoCoin.Server\obj\Debug\net5.0\InfoCoin.Server.genruntimeconfig.cache
+D:\www\git\InfoCoin\InfoCoin.Server\InfoCoin.Server\bin\Debug\net5.0\InfoCoin.Server.StaticWebAssets.xml

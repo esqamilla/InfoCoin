@@ -96,7 +96,7 @@ namespace InfoCoin.Server.Controllers
                 }
             }
 
-            return new JsonResult("Категория успешно добавлена");
+            return new JsonResult(table);
         }
 
         [HttpPatch]
@@ -138,7 +138,7 @@ namespace InfoCoin.Server.Controllers
         {
             string query = @"
                 delete from [dbo].Category
-                where CategoryID = " + id + @"
+                where CategoryID = '" + id + @"'
             ";
 
             DataTable table = new DataTable();

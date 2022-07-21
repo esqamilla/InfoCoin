@@ -16,89 +16,89 @@ for (let i = 0; i < 10; i++) {
 	});
 }
 
-export const incomeTableDataTest: IncomeData = {
-	categories: [
-		{
-			id: 1,
-			title: "Кофе и рестораны",
-			icon: "icon",
-			color: "#17A7F9",
-			endDate: null
-		},
-		{
-			id: 2,
-			title: "Питание",
-			icon: "icon",
-			color: "#F1D900",
-			endDate: null
-		}
-	],
-	limits: [
-		{
-			id: 1,
-			limit: 5000,
-			startDate: "01.07.2022",
-			endDate: "31.07.2022",
-			category: {
-				id: 1,
-				title: "Кофе и рестораны",
-				icon: "icon",
-				color: "#17A7F9",
-				endDate: null
-			},
-		},
-		{
-			id: 2,
-			limit: 10000,
-			startDate: "01.07.2022",
-			endDate: "31.07.2022",
-			category: {
-				id: 2,
-				title: "Питание",
-				icon: "icon",
-				color: "#F1D900",
-				endDate: null
-			},
-		}
-	],
-	financeItems: [
-		{
-			id: 1,
-			cost: 100,
-			description: "Описание с большущим текстом, который тянется и тянется и нет ему конца, а нужно это для того, чтобы проверить кнопку редактирования",
-			date: "03.07.2022",
-			categoryId: 1,
-		},
-		{
-			id: 2,
-			cost: 200,
-			description: "Описание к трате...",
-			date: "03.07.2022",
-			categoryId: 1,
-		},
-		{
-			id: 3,
-			cost: 300,
-			description: "Описание к трате...",
-			date: "04.07.2022",
-			categoryId: 1,
-		},
-		{
-			id: 4,
-			cost: 400,
-			description: "Описание к трате...",
-			date: "04.07.2022",
-			categoryId: 2,
-		},
-		{
-			id: 5,
-			cost: 6000,
-			description: "Описание к трате...",
-			date: "05.07.2022",
-			categoryId: 2,
-		}
-	]
-};
+// export const incomeTableDataTest: IncomeData = {
+// 	categories: [
+// 		{
+// 			id: 1,
+// 			title: "Кофе и рестораны",
+// 			icon: "icon",
+// 			color: "#17A7F9",
+// 			endDate: null
+// 		},
+// 		{
+// 			id: 2,
+// 			title: "Питание",
+// 			icon: "icon",
+// 			color: "#F1D900",
+// 			endDate: null
+// 		}
+// 	],
+// 	limits: [
+// 		{
+// 			id: 1,
+// 			limit: 5000,
+// 			startDate: "01.07.2022",
+// 			endDate: "31.07.2022",
+// 			category: {
+// 				id: 1,
+// 				title: "Кофе и рестораны",
+// 				icon: "icon",
+// 				color: "#17A7F9",
+// 				endDate: null
+// 			},
+// 		},
+// 		{
+// 			id: 2,
+// 			limit: 10000,
+// 			startDate: "01.07.2022",
+// 			endDate: "31.07.2022",
+// 			category: {
+// 				id: 2,
+// 				title: "Питание",
+// 				icon: "icon",
+// 				color: "#F1D900",
+// 				endDate: null
+// 			},
+// 		}
+// 	],
+// 	financeItems: [
+// 		{
+// 			id: 1,
+// 			cost: 100,
+// 			description: "Описание с большущим текстом, который тянется и тянется и нет ему конца, а нужно это для того, чтобы проверить кнопку редактирования",
+// 			date: "03.07.2022",
+// 			categoryId: 1,
+// 		},
+// 		{
+// 			id: 2,
+// 			cost: 200,
+// 			description: "Описание к трате...",
+// 			date: "03.07.2022",
+// 			categoryId: 1,
+// 		},
+// 		{
+// 			id: 3,
+// 			cost: 300,
+// 			description: "Описание к трате...",
+// 			date: "04.07.2022",
+// 			categoryId: 1,
+// 		},
+// 		{
+// 			id: 4,
+// 			cost: 400,
+// 			description: "Описание к трате...",
+// 			date: "04.07.2022",
+// 			categoryId: 2,
+// 		},
+// 		{
+// 			id: 5,
+// 			cost: 6000,
+// 			description: "Описание к трате...",
+// 			date: "05.07.2022",
+// 			categoryId: 2,
+// 		}
+// 	]
+// };
 
 export const dataTest = [
 	{

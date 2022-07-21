@@ -25,7 +25,7 @@ namespace InfoCoin.Server.Controllers
         [HttpGet]
         public JsonResult Get()
         {
-            string query = @"select FinanceItemID, Cost, [Description], [Date], FinanceID from dbo.FinanceItem";
+            string query = @"select FinanceItemID, Cost, [Description], [Date], FinanceID, CategoryID from dbo.FinanceItem";
 
             DataTable table = new DataTable();
             string sqlDataSource = _configuration.GetConnectionString("InfoCoinAppCon");
@@ -49,7 +49,7 @@ namespace InfoCoin.Server.Controllers
         [HttpGet("{id}")]
         public JsonResult Get(int id)
         {
-            string query = @"select Cost, [Description], [Date], FinanceID from dbo.FinanceItem
+            string query = @"select Cost, [Description], [Date], FinanceID, CategoryID from dbo.FinanceItem
                                 where FinanceItemID = " + id + @"
                             ";
 
@@ -77,7 +77,7 @@ namespace InfoCoin.Server.Controllers
         {
             string query = @"
                 insert into [dbo].FinanceItem values
-                ('" + financeItem.Cost + @"','" + financeItem.Description + @"','" + financeItem.Date + @"','" + financeItem.FinanceId + @"')
+                ('" + financeItem.Cost + @"','" + financeItem.Description + @"','" + financeItem.Date + @"','" + financeItem.FinanceId + @"','" + financeItem.CategoryId + @"')
             ";
 
             DataTable table = new DataTable();
@@ -108,7 +108,8 @@ namespace InfoCoin.Server.Controllers
                 Cost = '" + financeitem.Cost + @"',
                 [Description] = '" + financeitem.Description + @"',
                 [Date] = '" + financeitem.Date + @"',
-                FinanceID = '" + financeitem.FinanceId + @"'
+                FinanceID = '" + financeitem.FinanceId + @"',
+                CategoryID = '" + financeitem.CategoryId + @"'
                 where FinanceItemID = " + financeitem.FinanceItemId + @"
             ";
 

@@ -21,3 +21,16 @@
 		transition: color 0.38s ease-in-out;
 	}
 }
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+
+	>button {
+		width: fit-content;
+		margin-right: 0;
+		margin-left: auto;
+		margin-bottom: 20px;
+		margin-top: -50px;
+	}
+}

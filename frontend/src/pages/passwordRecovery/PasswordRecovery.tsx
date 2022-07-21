@@ -12,8 +12,6 @@ const PasswordRecovery: FC = () => {
   const onFinish = (values: RecoveryData) => {
     message.success('Код отправлен на указанный эл. адрес!');
 
-    console.log("values", values);
-
     navigate("/passwordRecoveryCode", { replace: true });
   };
 

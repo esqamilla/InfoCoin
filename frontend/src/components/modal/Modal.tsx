@@ -9,9 +9,10 @@ interface ModalProps {
   visible: boolean;
   setVisible: React.Dispatch<React.SetStateAction<boolean>>;
   width?: number | string;
+  onFinish?: () => void;
 }
 
-const Modal: FC<ModalProps> = ({ title, children, visible, setVisible, width = 690 }) => {
+const Modal: FC<ModalProps> = ({ title, children, visible, setVisible, width = 690, onFinish }) => {
   const [confirmLoading, setConfirmLoading] = useState(false);
 
 
@@ -45,7 +46,7 @@ const Modal: FC<ModalProps> = ({ title, children, visible, setVisible, width = 6
             Назад
           </Button>
           <Button
-            onClick={handleOk}
+            onClick={onFinish ? onFinish : handleOk}
             className={style.btn}
             type={"primary"}
             loading={confirmLoading}

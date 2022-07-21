@@ -12,8 +12,6 @@ const PasswordRecoveryCode: FC = () => {
   const onFinish = (values: RecoveryCodeData) => {
     message.success('Введите новый пароль!');
 
-    console.log("values", values);
-
     navigate("/passwordRecoveryChanging", { replace: true });
   };
 

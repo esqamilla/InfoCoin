@@ -11,8 +11,6 @@ const Authorization: FC = () => {
 
   const onFinish = (values: AuthorizationData) => {
     message.success('Авторизация прошла успешно!');
-
-    console.log("values", values);
   };
 
   const onFinishFailed = () => {

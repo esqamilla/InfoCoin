@@ -15,8 +15,6 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-console.log("test app");
-
 root.render(
   <React.StrictMode>
     <ConfigProvider locale={rus}>

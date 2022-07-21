@@ -1,3 +1,5 @@
+import {Category as CategoryNew, FinanceItem as FinanceItemNew, Limits as LimitsNew} from "../models/Models";
+
 export type MainMenuItems = "finance"
 	| "income"
 	| "expenses"
@@ -34,9 +36,9 @@ export interface RecoveryChangingData {
 export type FinanceTabs = "table" | "calendar";
 
 export interface IncomeData {
-	categories: Category[],
-	limits: Limit[],
-	financeItems: FinanceItem[]
+	categories?: CategoryNew[],
+	limits?: LimitsNew[],
+	financeItems?: FinanceItemNew[]
 }
 
 export interface Category {

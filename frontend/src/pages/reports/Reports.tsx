@@ -3,21 +3,33 @@ import {Button, DatePicker, Segmented} from 'antd'
 import {SegmentedValue} from 'antd/lib/segmented';
 import React, {FC, useEffect, useState} from 'react'
 import {reportsSections} from '../../data/data';
-import {incomeTableDataTest} from '../../mock/mock';
 import {IncomeData, ReportsSections} from '../../types/types';
 import style from "./reports.module.scss"
 import ReportChart from './reportChart/ReportChart';
 import moment from 'moment';
+import {Category, FinanceItem} from '../../models/Models';
+import {createGetRequest} from '../../api/Api';
 
 const { RangePicker } = DatePicker;
 
 const Reports: FC = () => {
   const [selectedSection, setSelectedSection] = useState<SegmentedValue>("Расходы");
   const [sectionData, setSectionData] = useState<IncomeData | null>(null);
+  const [categories, setCategories] = useState<Category[] | undefined>();
+  const [financeItems, setFinanceItems] = useState<FinanceItem[] | undefined>();
+  
+
+  useEffect(() => {
+    createGetRequest("Category").then(data => setCategories(data));
+    createGetRequest("FinanceItem").then(data => setFinanceItems(data));
+  }, [])
 
   useEffect(() => {
     if (selectedSection === "Расходы")
-      setSectionData(incomeTableDataTest)
+      setSectionData({
+        categories: categories,
+        financeItems: financeItems,
+      })
     else if (selectedSection === "Доходы")
       setSectionData(null)
     else if (selectedSection === "Анализ бюджета")
@@ -27,8 +39,6 @@ const Reports: FC = () => {
   const onChangeSection = (value: SegmentedValue) => {
     setSelectedSection(value)
   }
-
-  console.log("sectionData", sectionData);
 
   return (
 	  <div className={style.wrapper}>
