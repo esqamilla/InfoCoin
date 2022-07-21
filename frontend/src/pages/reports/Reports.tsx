@@ -17,7 +17,6 @@ const Reports: FC = () => {
   const [sectionData, setSectionData] = useState<IncomeData | null>(null);
   const [categories, setCategories] = useState<Category[] | undefined>();
   const [financeItems, setFinanceItems] = useState<FinanceItem[] | undefined>();
-  
 
   useEffect(() => {
     createGetRequest("Category").then(data => setCategories(data));

@@ -130,6 +130,9 @@ const CategoryModal: FC<CategoryModalProps> = ({ title, visible, setVisible, cat
                   color={color}
                   onChange={({ hex }) => {
                     setColor(hex);
+                    form.setFieldsValue({
+                      Color: hex,
+                    });
                   }}
                 />
               }
